@@ -1,33 +1,26 @@
 # gml2geojson
-wfs gml to geojson
 
-## CDN
+Convert WFS GML responses to GeoJSON.
+
+## Install
+
+```bash
+npm install gml2geojson
+```
+
+## Usage
+
+```ts
+import { parseGML } from 'gml2geojson';
+import fs from 'node:fs';
+
+const xml = fs.readFileSync('feature.gml', 'utf8');
+const geojson = parseGML(xml);
+console.log(JSON.stringify(geojson, null, 2));
+```
+
+The library works in both Node.js and browser environments. In the browser a UMD build is available via CDN:
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gml2geojson/dist/gml2geojson.js"></script>
-
-<script>
-
-    fetch('./data').then(res=>res.text()).then(xml=>{
-        const geojson=gml2geojson.parseGML(xml);
-    })
-</script>
-
-```
-
-## NPM
-
-```shell
-npm i gml2geojson
-# or
-yarn add gml2geojson
-
-```
-
-
-```js
-
-import {parseGML} from 'gml2geojson';
-
-const geojson=parseGML(xml);
-
+<script src="https://cdn.jsdelivr.net/npm/gml2geojson/dist/index.js"></script>
 ```

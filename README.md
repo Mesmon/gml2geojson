@@ -1,33 +1,20 @@
 # gml2geojson
-wfs gml to geojson
 
-## CDN
-```html
-<script src="https://cdn.jsdelivr.net/npm/gml2geojson/dist/gml2geojson.js"></script>
+Convert GML features to GeoJSON.
 
-<script>
+## Install
 
-    fetch('./data').then(res=>res.text()).then(xml=>{
-        const geojson=gml2geojson.parseGML(xml);
-    })
-</script>
-
+```bash
+npm install @mesmon/gml2geojson
 ```
 
-## NPM
+## Usage
 
-```shell
-npm i gml2geojson
-# or
-yarn add gml2geojson
+```ts
+import { parseGML } from '@mesmon/gml2geojson'
 
+const xml = '<gml...>' // gml data string
+const geojson = parseGML(xml)
 ```
 
-
-```js
-
-import {parseGML} from 'gml2geojson';
-
-const geojson=parseGML(xml);
-
-```
+This library uses fast-xml-parser and works in both Node.js and browser environments.
